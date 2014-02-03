@@ -114,7 +114,7 @@ IF(UNIX AND NOT WIN32)
     message("--  Python bindings will not be generated.")
   endif(PYTHONLIBS_FOUND)
 
-  set(CMAKE_CXX_FLAGS "-Wall -Wconversion -O3 ${OpenMP_CXX_FLAGS} -msse4")
+  set(CMAKE_CXX_FLAGS "-Wall -Wconversion -O3 ${OpenMP_CXX_FLAGS} -msse4 -std=c++11")
   #  message("CXX_FLAGS: ${CMAKE_CXX_FLAGS}")
 
   enable_testing()
@@ -153,7 +153,7 @@ IF(UNIX AND NOT WIN32)
   ENDIF (CMAKE_SIZEOF_VOID_P MATCHES "8")
 
   set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "HMMlib: a library for general hidden Markov Models, exploiting modern CPUs")
-  set(CPACK_RESOURCE_FILE_LICENSE "COPYING")
+  set(CPACK_RESOURCE_FILE_LICENSE "${PROJECT_SOURCE_DIR}/COPYING")
   set(CPACK_SOURCE_GENERATOR "TGZ;ZIP")
   set(CPACK_SOURCE_IGNORE_FILES
     ".*CMakeFiles"
